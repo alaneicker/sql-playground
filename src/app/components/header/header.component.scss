@@ -1,0 +1,11 @@
+@import '../../../assets/styles/sass-utilities/tools.scss';
+
+.header {
+    background: $black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(60);
+    padding: rem(0 16);
+    color: white;
+}

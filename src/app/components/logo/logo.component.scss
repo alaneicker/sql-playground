@@ -1,0 +1,9 @@
+@import '../../../assets/styles/sass-utilities/tools.scss';
+
+.logo {
+    font-size: rem(20);
+
+    span {
+        color: $link-light-blue;
+    }
+}
