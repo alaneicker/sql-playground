@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ConnectionStatusComponent implements OnInit {
   @Input() isConnected: boolean;
+  @Input() connectedDB: String;
 
   constructor() { }
 

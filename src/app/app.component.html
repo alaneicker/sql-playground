@@ -3,7 +3,9 @@
     <app-logo></app-logo>
   </ng-container>
   <ng-container header-center>
-      <app-connection-status [isConnected]="isConnected"></app-connection-status>
+      <app-connection-status 
+        [isConnected]="isConnected"
+        [connectedDB]="connectedDB"></app-connection-status>
   </ng-container>
   <ng-container header-right>
     <button class="btn btn--xsm" (click)="createNewConnection()">New Connection</button>
