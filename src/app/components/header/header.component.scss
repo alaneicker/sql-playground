@@ -4,8 +4,19 @@
     background: $black;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: rem(60);
     padding: rem(0 16);
     color: white;
+
+    & > * {
+        flex: 1;
+    }
+
+    &__center {
+        text-align: center;
+    }
+
+    &__right {
+        text-align: right;
+    }
 }

@@ -8,6 +8,7 @@ import { ConnectionService } from './services/connection.service';
 })
 export class AppComponent {
   title = 'app';
+  isConnected = true;
 
   constructor(private connectionService: ConnectionService) {}
 
