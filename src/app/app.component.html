@@ -1,1 +1,8 @@
-<app-header></app-header>
+<app-header>
+    <ng-container header-left>
+        <app-logo></app-logo>
+    </ng-container>
+    <ng-container header-right>
+        <button class="btn btn--xsm" (click)="createNewConnection()">New Connection</button>
+    </ng-container>
+</app-header>

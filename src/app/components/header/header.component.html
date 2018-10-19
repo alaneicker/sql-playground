@@ -1,8 +1,8 @@
 <div class="header">
   <div class="header__left">
-    <app-logo></app-logo>
+    <ng-content select=[header-left]></ng-content>
   </div>
   <div class="header__right">
-    <button class="btn btn--xsm">New Connection</button>
+    <ng-content select=[header-right]></ng-content>
   </div>
 </div>

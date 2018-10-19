@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { HeaderModule } from './components/header/header.module';
 
+import { ConnectionService } from './services/connection.service';
+
 import { AppComponent } from './app.component';
+import { LogoModule } from './components/logo/logo.module';
 
 @NgModule({
   declarations: [
@@ -11,9 +14,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    HeaderModule
+    HeaderModule,
+    LogoModule,
   ],
-  providers: [],
+  providers: [ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
