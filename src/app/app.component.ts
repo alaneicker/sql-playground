@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { HttpService } from './services/http.service';
+import { ConnectionStatusService } from './services/connection-status.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,10 @@ export class AppComponent {
     database: 'brewlog'
   };
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private connectionStatusService: ConnectionStatusService,
+  ) {}
 
   createNewConnection(): void {
     this.httpService.post({
@@ -29,8 +34,10 @@ export class AppComponent {
     })
     .then(res => {
       if (res.connected === true) {
-        this.isConnected = true;
-        this.connectedDB = this.dbConfig.database;
+        this.connectionStatusService.updateStatus({
+          status: res.connected,
+          database: this.dbConfig.database,
+        });
       }
     })
     .catch(err => console.log(err));

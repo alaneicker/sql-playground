@@ -6,6 +6,7 @@ import { HeaderModule } from './components/header/header.module';
 import { ConnectionStatusModule } from './components/connection-status/connection-status.module';
 
 import { HttpService } from './services/http.service';
+import { ConnectionStatusService } from './services/connection-status.service';
 
 import { AppComponent } from './app.component';
 import { LogoModule } from './components/logo/logo.module';
@@ -21,7 +22,10 @@ import { LogoModule } from './components/logo/logo.module';
     LogoModule,
     ConnectionStatusModule,
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService,
+    ConnectionStatusService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,17 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
+
+import { ConnectionStatusService } from '../../services/connection-status.service';
 
 @Component({
   selector: 'app-connection-status',
   templateUrl: './connection-status.component.html',
   styleUrls: ['./connection-status.component.scss']
 })
-export class ConnectionStatusComponent implements OnInit {
-  @Input() isConnected: boolean;
-  @Input() connectedDB: String;
+export class ConnectionStatusComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject();
 
-  constructor() { }
+  isConnected: false;
+  database: string;
+
+  constructor(private connectionStatusService: ConnectionStatusService) { }
 
   ngOnInit() {
+    this.connectionStatusService.watch
+    .takeUntil(this.unsubscribe$)
+    .subscribe((res) => {
+      this.isConnected = res.isConnected;
+      this.database = res.database;
+    });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }
