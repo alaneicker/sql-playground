@@ -35,7 +35,7 @@ export class AppComponent {
     .then(res => {
       if (res.connected === true) {
         this.connectionStatusService.updateStatus({
-          status: res.connected,
+          isConnected: res.connected,
           database: this.dbConfig.database,
         });
       }

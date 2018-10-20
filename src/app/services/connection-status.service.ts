@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export interface Status {
     isConnected: boolean;
     database: string;
-};
+}
 
 @Injectable()
 export class ConnectionStatusService {
