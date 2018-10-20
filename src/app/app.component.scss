@@ -1,0 +1,42 @@
+@import '../assets/styles/sass-utilities/tools.scss';
+
+.dashboard {
+  display: flex;
+  height: calc(100% - 60px);
+
+  & > * {
+    height: 100%;
+  }
+
+  & > * + * {
+    border-left: rem(1) solid darken($gray-5, 2%);
+  }
+
+  &__menu {
+    background: $gray-6;
+    width: rem(250);
+    padding: rem(16);
+  }
+
+  &__results {
+    padding: rem(16);
+  }
+
+  &__editor,
+  &__results {
+    flex: 1;
+  }
+
+  &__editor__controls {
+    height: rem(40);
+    border-bottom: rem(1) solid darken($gray-5, 2%);
+  }
+
+  &__editor__textarea {
+    font-family: 'Courier New', Courier, monospace;
+    padding: rem(16);
+    height: calc(100% - 32px);
+    outline: 0;
+    border: 0;
+  }
+}

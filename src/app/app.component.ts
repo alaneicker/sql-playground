@@ -9,6 +9,8 @@ import { HttpService } from './services/http.service';
 export class AppComponent {
   title = 'app';
   isConnected = false;
+  connectedDB: string;
+  queryResult: any;
 
   dbConfig = {
     host: 'localhost',
@@ -18,19 +20,28 @@ export class AppComponent {
     database: 'brewlog'
   };
 
-  connectedDB: string;
-
   constructor(private httpService: HttpService) {}
 
   createNewConnection(): void {
     this.httpService.post({
       url: 'http://localhost:8080/api/create-connection',
       data: this.dbConfig,
-    }).then(res => {
+    })
+    .then(res => {
       if (res.connected === true) {
         this.isConnected = true;
         this.connectedDB = this.dbConfig.database;
       }
-    }).catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+  }
+
+  sendQuery() {
+    this.httpService.post({
+      url: 'http://localhost:8080/api/query',
+      data: { query: 'SELECT * FROM mybeers' },
+    })
+    .then(res => this.queryResult = res)
+    .catch(err => console.log(err));
   }
 }
