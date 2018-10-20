@@ -21,8 +21,10 @@ export class ConnectionStatusComponent implements OnInit, OnDestroy {
     this.connectionStatusService.watch
     .takeUntil(this.unsubscribe$)
     .subscribe((res) => {
-      this.isConnected = res.isConnected;
-      this.database = res.database;
+      if (res.isConnected === true) {
+        this.isConnected = res.isConnected;
+        this.database = res.database;
+      }
     });
   }
 

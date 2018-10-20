@@ -10,6 +10,7 @@ import { ConnectionStatusService } from './services/connection-status.service';
 
 import { AppComponent } from './app.component';
 import { LogoModule } from './components/logo/logo.module';
+import { DbTableListModule } from './components/db-table-list/db-table-list.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LogoModule } from './components/logo/logo.module';
     BrowserModule,
     HeaderModule,
     LogoModule,
+    DbTableListModule,
     ConnectionStatusModule,
   ],
   providers: [

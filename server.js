@@ -42,6 +42,22 @@ app.route('/api/query').post((req, res) => {
     .catch(error => console.log(error));
 });
 
+app.route('/api/get-db-tables').get((req, res) => {
+  query({ query: `show tables` })
+    .then(tables => {
+      res.send( [].concat.apply([], tables.map(obj => Object.values(obj))) );
+    })
+    .catch(error => console.log(error));
+});
+
+app.route('/api/get-table-columns/:table').get((req, res) => {
+  query({ query: `SHOW COLUMNS FROM ${req.params.table}` })
+    .then(columns => {
+      res.send(columns);
+    })
+    .catch(error => console.log(error));
+});
+
 module.exports = app.listen(port, () => {
   console.log(`Server is running in ${env} mode on port ${port}`);
 });

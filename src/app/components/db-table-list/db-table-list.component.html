@@ -1,0 +1,12 @@
+<span *ngIf="!tables.length">No database tables</span>
+
+<ul>
+  <li *ngFor="let table of tables">
+    <div class="txt-medium">{{ table.name }}</div>
+    <ul>
+      <li class="padding-left-8" *ngFor="let column of table.columns">
+        <span class="txt-medium">{{ column.Field }}</span> {{ column.Type }}
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -16,7 +16,7 @@ export class ConnectionStatusService {
 
     updateStatus(status: Status) {
         this.status.next({
-            isConnected: status.database,
+            isConnected: status.isConnected,
             database: status.database,
         });
     }
