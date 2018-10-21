@@ -1,15 +1,12 @@
 @import '../assets/styles/sass-utilities/tools.scss';
+@import '../assets/styles/app-styles/variables.scss';
 
 .dashboard {
   display: flex;
   height: calc(100vh - 60px);
 
   & > * {
-    min-height: calc(100vh - 60px);
-  }
-
-  & > * + * {
-    border-left: rem(1) solid darken($gray-5, 2%);
+    height: calc(100vh - 60px);
   }
 
   &__menu {
@@ -18,27 +15,36 @@
     width: rem(250);
     padding: rem(16);
     overflow: auto;
+    border-right: rem(1) solid darken($gray-5, 2%);
   }
 
-  &__results {
-    padding: rem(16);
-  }
-
-  &__editor,
-  &__results {
+  &__editor {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   &__editor__controls {
-    height: rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: rem(40 0 0);
     border-bottom: rem(1) solid darken($gray-5, 2%);
+    padding: rem(0 8);
   }
 
   &__editor__textarea {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: $font-source-code-pro;
     padding: rem(16);
-    min-height: calc(100% - 100px);
+    height: rem(200);
     outline: 0;
     border: 0;
+  }
+
+  &__results {
+    border-top: rem(1) solid darken($gray-5, 2%);
+    padding: rem(16);
+    flex: 1;
+    overflow: auto;
   }
 }
