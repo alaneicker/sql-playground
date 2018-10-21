@@ -2,10 +2,10 @@
 
 .dashboard {
   display: flex;
-  height: calc(100% - 60px);
+  height: calc(100vh - 60px);
 
   & > * {
-    height: 100%;
+    min-height: calc(100vh - 60px);
   }
 
   & > * + * {
@@ -14,8 +14,10 @@
 
   &__menu {
     background: $gray-6;
+    font-size: rem(14);
     width: rem(250);
     padding: rem(16);
+    overflow: auto;
   }
 
   &__results {
@@ -35,7 +37,7 @@
   &__editor__textarea {
     font-family: 'Courier New', Courier, monospace;
     padding: rem(16);
-    height: calc(100% - 32px);
+    min-height: calc(100% - 100px);
     outline: 0;
     border: 0;
   }

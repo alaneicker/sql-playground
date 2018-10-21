@@ -19,7 +19,7 @@ export class AppComponent {
     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
     user: 'root',
     password: 'root',
-    database: 'brewlog'
+    database: 'alaneicker_resume'
   };
 
   constructor(
