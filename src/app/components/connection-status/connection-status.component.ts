@@ -18,7 +18,7 @@ export class ConnectionStatusComponent implements OnInit, OnDestroy {
   constructor(private connectionStatusService: ConnectionStatusService) { }
 
   ngOnInit() {
-    this.connectionStatusService.watch
+    this.connectionStatusService.statusChange
     .takeUntil(this.unsubscribe$)
     .subscribe((res) => {
       if (res.isConnected === true) {
