@@ -1,5 +1,8 @@
 @import '../../../assets/styles/sass-utilities/tools.scss';
 
-.table-list > * + * {
-    margin-top: rem(8);
+.table-list {
+  & > * {
+    padding: rem(16);
+    border-bottom: 1px solid darken($gray-5, 3%);
+  }
 }
