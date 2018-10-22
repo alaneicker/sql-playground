@@ -12,11 +12,11 @@ import { ConnectionStatusService } from '../../services/connection-status.servic
 export class ConnectionStatusComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
   
-  @Input() isActive: boolean;
-  @Input() activeText: string;
-  @Input() inactiveText: string;
+  isConnected = false;
+  inactiveText = 'Not Connected';
+  activeText = '';
   
-  isConnected: false;
+  // TODO: reomove this
   database: string;
 
   constructor(private connectionStatusService: ConnectionStatusService) { }
@@ -26,8 +26,11 @@ export class ConnectionStatusComponent implements OnInit, OnDestroy {
     .takeUntil(this.unsubscribe$)
     .subscribe((res) => {
       if (res.isConnected === true) {
-        this.isConnected = res.isConnected;
+        // TODO: reomove this
         this.database = res.database;
+        
+        this.isConnected = res.isConnected;
+        this.activeText = `Connected to: ${res.database}`;
       }
     });
   }
