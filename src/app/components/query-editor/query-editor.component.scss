@@ -1,0 +1,31 @@
+@import '../../../assets/styles/sass-utilities/tools.scss';
+
+.query-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: rem(40 0 0);
+    border-bottom: rem(1) solid darken($gray-5, 2%);
+    padding: rem(0 8);
+  }
+
+  &__field {
+    font-family: 'Courier New', Courier, monospace;
+    padding: rem(16);
+    height: rem(200);
+    outline: 0;
+    border: 0;
+  }
+
+  &__results {
+    border-top: rem(1) solid darken($gray-5, 2%);
+    padding: rem(16);
+    flex: 1;
+    overflow: auto;
+  }
+} 

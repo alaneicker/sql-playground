@@ -11,23 +11,10 @@
 </app-header>
 
 <div class="dashboard">
-  <div class="dashboard__menu">
+  <div class="dashboard__left">
     <app-db-table-list></app-db-table-list>
   </div>
-  <div class="dashboard__editor">
-    <div class="dashboard__editor__controls">
-      <ul class="h-list h-list--tight">
-        <li>
-          <button class="btn btn--xsm btn--hollow">Clear</button>
-        </li>
-        <li>
-          <button class="btn btn--xsm btn--hollow">Run</button>
-        </li>
-      </ul>
-    </div>
-    <textarea class="dashboard__editor__textarea" placeholder="Type query here..."></textarea>
-    <div class="dashboard__results">
-      
-    </div>
+  <div class="dashboard__right">
+    <app-query-editor></app-query-editor>
   </div>
 </div>

@@ -1,5 +1,4 @@
 @import '../assets/styles/sass-utilities/tools.scss';
-@import '../assets/styles/app-styles/variables.scss';
 
 .dashboard {
   display: flex;
@@ -9,7 +8,7 @@
     height: calc(100vh - 60px);
   }
 
-  &__menu {
+  &__left {
     background: $gray-6;
     font-size: rem(14);
     width: rem(250);
@@ -18,33 +17,7 @@
     border-right: rem(1) solid darken($gray-5, 2%);
   }
 
-  &__editor {
+  &__right {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__editor__controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: rem(40 0 0);
-    border-bottom: rem(1) solid darken($gray-5, 2%);
-    padding: rem(0 8);
-  }
-
-  &__editor__textarea {
-    font-family: $font-source-code-pro;
-    padding: rem(16);
-    height: rem(200);
-    outline: 0;
-    border: 0;
-  }
-
-  &__results {
-    border-top: rem(1) solid darken($gray-5, 2%);
-    padding: rem(16);
-    flex: 1;
-    overflow: auto;
   }
 }

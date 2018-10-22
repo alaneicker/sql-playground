@@ -11,10 +11,11 @@ import { ConnectionStatusService } from './services/connection-status.service';
 import { AppComponent } from './app.component';
 import { LogoModule } from './components/logo/logo.module';
 import { DbTableListModule } from './components/db-table-list/db-table-list.module';
+import { QueryEditorModule } from './components/query-editor/query-editor.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     HttpClientModule,
@@ -23,6 +24,7 @@ import { DbTableListModule } from './components/db-table-list/db-table-list.modu
     LogoModule,
     DbTableListModule,
     ConnectionStatusModule,
+    QueryEditorModule,
   ],
   providers: [
     HttpService,
