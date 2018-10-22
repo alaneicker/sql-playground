@@ -12,7 +12,7 @@ export class ConnectionStatusService {
         isConnected: false,
     });
 
-    watch = this.status.asObservable();
+    statusChange = this.status.asObservable();
 
     updateStatus(status: Status) {
         this.status.next({
