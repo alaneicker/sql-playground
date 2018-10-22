@@ -21,7 +21,7 @@ export class DbTableListComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    this.connectionStatusService.watch
+    this.connectionStatusService.statusChange
       .takeUntil(this.unsubscribe$)
       .subscribe((res) => {
         if (res.isConnected === true) {
