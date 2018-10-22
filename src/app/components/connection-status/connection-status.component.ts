@@ -11,7 +11,11 @@ import { ConnectionStatusService } from '../../services/connection-status.servic
 })
 export class ConnectionStatusComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
-
+  
+  @Input() isActive: boolean;
+  @Input() activeText: string;
+  @Input() inactiveText: string;
+  
   isConnected: false;
   database: string;
 
