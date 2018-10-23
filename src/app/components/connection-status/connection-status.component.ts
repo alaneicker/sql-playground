@@ -3,32 +3,32 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 import { ConnectionStatusService } from '../../services/connection-status.service';
+import { StatusComponent } from '../status/status.component';
 
 @Component({
   selector: 'app-connection-status',
-  templateUrl: './connection-status.component.html',
-  styleUrls: ['./connection-status.component.scss']
+  template: `
+    <app-status
+      [status]="isConnected"
+      [activeText]="activeText"
+      [inactiveText]="inactiveText"></app-status>
+  `,
 })
 export class ConnectionStatusComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
-  
+
   isConnected = false;
   inactiveText = 'Not Connected';
   activeText = '';
-  
-  // TODO: reomove this
-  database: string;
 
-  constructor(private connectionStatusService: ConnectionStatusService) { }
+  constructor(
+    private connectionStatusService: ConnectionStatusService) { }
 
   ngOnInit() {
     this.connectionStatusService.statusChange
     .takeUntil(this.unsubscribe$)
     .subscribe((res) => {
       if (res.isConnected === true) {
-        // TODO: reomove this
-        this.database = res.database;
-        
         this.isConnected = res.isConnected;
         this.activeText = `Connected to: ${res.database}`;
       }

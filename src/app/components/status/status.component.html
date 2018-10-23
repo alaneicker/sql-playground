@@ -1,0 +1,6 @@
+<div class="status" [class.is-active]="status">
+  <div class="status__beacon"></div>
+  <div class="status__label">
+    {{ status == true ? activeText : inactiveText }}
+  </div>
+</div>
