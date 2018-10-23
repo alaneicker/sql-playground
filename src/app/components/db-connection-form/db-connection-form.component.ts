@@ -37,11 +37,15 @@ export class DbConnectionFormComponent implements OnInit {
   switchConnectionType(connectionType: string) {
     this.form = connectionType === 'socket' ? this.socketConnection : this.standardConnection;
     this.connectionType = connectionType;
-    console.log(this.form);
   }
 
   connect(form: NgForm) {
-    this.submitted.emit();
+    if (form.valid) {
+      // We need some type of hash for the username and
+      // password that can be decrypted on the server
+
+      this.submitted.emit();
+    }
   }
 
 }

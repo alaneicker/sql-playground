@@ -28,46 +28,50 @@
     </div>
 
     <ng-container *ngIf="connectionType == 'standard'">
-      <div class="vr-2">
-        <label for="host">Host</label>
-        <input type="text" id="host" class="input">
+      <div class="input" [class.input--has-error]="form.get('host').errors && _form.submitted">
+        <label for="host">Host <span class="txt-red">*</span></label>
+        <input type="text" id="host" class="input" formControlName="host">
+        <small></small>
       </div>
-      <div class="vr-2">
-        <label for="username">Username</label>
-        <input type="text" id="host" class="username">
+      <div class="input" [class.input--has-error]="form.get('username').errors && _form.submitted">
+        <label for="username">Username <span class="txt-red">*</span></label>
+        <input type="text" id="host" class="username" formControlName="username">
+        <small></small>
       </div>
-      <div class="vr-2">
-        <label for="password">Password</label>
-        <input type="text" id="password" class="input">
+      <div class="input" [class.input--has-error]="form.get('password').errors && _form.submitted">
+        <label for="password">Password <span class="txt-red">*</span></label>
+        <input type="text" id="password" class="input" formControlName="password">
+        <small></small>
       </div>
-      <div class="vr-2">
-        <label for="port">Port</label>
-        <input type="text" id="port" class="input">
+      <div class="input" [class.input--has-error]="form.get('port').errors && _form.submitted">
+        <label for="port">Port <span class="txt-red">*</span></label>
+        <input type="text" id="port" class="input" formControlName="port" placeholder="3306">
+        <small></small>
       </div>
-      <div class="vr-2">
-        <label for="database">Database</label>
-        <input type="text" id="database" class="input">
+      <div class="input" [class.input--has-error]="form.get('database').errors && _form.submitted">
+        <label for="database">Database <span class="txt-red">*</span></label>
+        <input type="text" id="database" class="input" formControlName="database">
       </div>
     </ng-container>
 
     <ng-container *ngIf="connectionType == 'socket'">
-      <div class="vr-2">
-        <label for="username">Username</label>
-        <input type="text" id="host" class="username">
+      <div class="input">
+        <label for="username">Username <span class="txt-red">*</span></label>
+        <input type="text" id="host" class="username" formControlName="username">
       </div>
-      <div class="vr-2">
-        <label for="password">Password</label>
-        <input type="text" id="password" class="input">
+      <div class="input">
+        <label for="password">Password <span class="txt-red">*</span></label>
+        <input type="text" id="password" class="input" formControlName="password">
       </div>
-      <div class="vr-2">
-        <label for="socket">Socket</label>
-        <input type="text" id="socket" class="input">
+      <div class="input">
+        <label for="socket">Socket <span class="txt-red">*</span></label>
+        <input type="text" id="socket" class="input" formControlName="socket">
       </div>
-      <div class="vr-2">
-        <label for="database">Database</label>
-        <input type="text" id="database" class="input">
+      <div class="input">
+        <label for="database">Database <span class="txt-red">*</span></label>
+        <input type="text" id="database" class="input" formControlName="database">
       </div>
     </ng-container>
 
-    <button type="button" class="btn">Connect</button>
+    <button type="submit" class="btn">Connect</button>
 </form>
