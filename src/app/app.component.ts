@@ -48,6 +48,7 @@ export class AppComponent {
           isConnected: res.connected,
           database: this.dbConfig.database,
         });
+        this.showAddConnectionModal = false;
       }
     })
     .catch(err => console.log(err));
