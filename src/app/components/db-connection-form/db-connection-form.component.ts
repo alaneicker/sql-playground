@@ -5,7 +5,6 @@ import { ConnectionStatusService } from '../../services/connection-status.servic
 import { HttpService } from '../../services/http.service';
 
 import { environment as env } from '../../../environments/environment';
-import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-db-connection-form',
