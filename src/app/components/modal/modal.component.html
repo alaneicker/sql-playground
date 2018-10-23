@@ -1,5 +1,5 @@
 <div class="modal {{classes}}">
-  <div class="modal__window">
+  <div class="modal__window" [style.min-width]="minWidth + 'px'">
     <div class="modal__head">
       <div class="modal__head__left">
           <ng-content select=[modal-header]></ng-content>

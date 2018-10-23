@@ -11,11 +11,33 @@ export class DbConnectionFormComponent implements OnInit {
 
   form: FormGroup;
 
+  standardConnection =  new FormGroup({
+    host: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    port: new FormControl('', Validators.required),
+    database: new FormControl('', Validators.required),
+  });
+
+  socketConnection = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    socket: new FormControl('', Validators.required),
+    database: new FormControl('', Validators.required),
+  });
+
+  connectionType = 'standard';
+
   constructor() { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-    });
+    this.form = this.standardConnection;
+  }
+
+  switchConnectionType(connectionType: string) {
+    this.form = connectionType === 'socket' ? this.socketConnection : this.standardConnection;
+    this.connectionType = connectionType;
+    console.log(this.form);
   }
 
   connect(form: NgForm) {

@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
+  @Input() minWidth: string;
   @Input() classes: string;
   @Input() footer = false;
   @Input() showCloseBtn = true;

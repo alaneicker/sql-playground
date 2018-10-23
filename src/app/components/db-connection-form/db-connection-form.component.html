@@ -4,5 +4,70 @@
   #_form="ngForm"
   novalidate>
 
-    <button type="submit" class="btn">Connect</button>
+    <div class="vr-3">
+      <ul class="h-list">
+        <li>
+          <button 
+            type="button" 
+            class="btn btn--inverse btn--xsm" 
+            (click)="switchConnectionType('standard')"
+            [class.is-active]="connectionType == 'standard'">
+            Standard
+          </button>
+        </li>
+        <li>
+          <button 
+            type="button" 
+            class="btn btn--inverse btn--xsm" 
+            (click)="switchConnectionType('socket')"
+            [class.is-active]="connectionType == 'socket'">
+            Socket
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <ng-container *ngIf="connectionType == 'standard'">
+      <div class="vr-2">
+        <label for="host">Host</label>
+        <input type="text" id="host" class="input">
+      </div>
+      <div class="vr-2">
+        <label for="username">Username</label>
+        <input type="text" id="host" class="username">
+      </div>
+      <div class="vr-2">
+        <label for="password">Password</label>
+        <input type="text" id="password" class="input">
+      </div>
+      <div class="vr-2">
+        <label for="port">Port</label>
+        <input type="text" id="port" class="input">
+      </div>
+      <div class="vr-2">
+        <label for="database">Database</label>
+        <input type="text" id="database" class="input">
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="connectionType == 'socket'">
+      <div class="vr-2">
+        <label for="username">Username</label>
+        <input type="text" id="host" class="username">
+      </div>
+      <div class="vr-2">
+        <label for="password">Password</label>
+        <input type="text" id="password" class="input">
+      </div>
+      <div class="vr-2">
+        <label for="socket">Socket</label>
+        <input type="text" id="socket" class="input">
+      </div>
+      <div class="vr-2">
+        <label for="database">Database</label>
+        <input type="text" id="database" class="input">
+      </div>
+    </ng-container>
+
+    <button type="button" class="btn">Connect</button>
 </form>
