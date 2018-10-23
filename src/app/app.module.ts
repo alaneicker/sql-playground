@@ -11,6 +11,7 @@ import { LogoModule } from './components/logo/logo.module';
 import { DbTableListModule } from './components/db-table-list/db-table-list.module';
 import { QueryEditorModule } from './components/query-editor/query-editor.module';
 import { ModalModule } from './components/modal/modal.module';
+import { DbConnectionFormModule } from './components/db-connection-form/db-connection-form.module';
 
 import { AppComponent } from './app.component';
 
@@ -27,6 +28,7 @@ import { AppComponent } from './app.component';
     ConnectionStatusModule,
     QueryEditorModule,
     ModalModule,
+    DbConnectionFormModule,
   ],
   providers: [
     HttpService,
