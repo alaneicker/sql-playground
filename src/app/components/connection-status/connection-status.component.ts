@@ -3,7 +3,6 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 import { ConnectionStatusService } from '../../services/connection-status.service';
-import { StatusComponent } from '../status/status.component';
 
 @Component({
   selector: 'app-connection-status',

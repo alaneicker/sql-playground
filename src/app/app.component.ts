@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { HttpService } from './services/http.service';
-import { ConnectionStatusService } from './services/connection-status.service';
 
 @Component({
   selector: 'app-root',
@@ -16,18 +15,7 @@ export class AppComponent {
   isConnected = false;
   showAddConnectionModal = false;
 
-  dbConfig = {
-    host: 'localhost',
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-    user: 'root',
-    password: 'root',
-    database: 'alaneicker_resume'
-  };
-
-  constructor(
-    private httpService: HttpService,
-    private connectionStatusService: ConnectionStatusService,
-  ) {}
+  constructor(private httpService: HttpService) {}
 
   showCreateConnectionModal() {
     this.showAddConnectionModal = true;
@@ -35,23 +23,6 @@ export class AppComponent {
 
   hideCreateConnectionModal() {
     this.showAddConnectionModal = false;
-  }
-
-  createNewConnection(): void {
-    this.httpService.post({
-      url: 'http://localhost:8080/api/create-connection',
-      data: this.dbConfig,
-    })
-    .then(res => {
-      if (res.connected === true) {
-        this.connectionStatusService.updateStatus({
-          isConnected: res.connected,
-          database: this.dbConfig.database,
-        });
-        this.showAddConnectionModal = false;
-      }
-    })
-    .catch(err => console.log(err));
   }
 
   sendQuery() {
