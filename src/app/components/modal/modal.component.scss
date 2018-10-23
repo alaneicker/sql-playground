@@ -24,6 +24,10 @@
         align-items: center;
         justify-content: space-between;
         padding: rem(16);
+
+        & > * + * {
+            margin-left: rem(16);
+        }
     }
 
     &__body {
