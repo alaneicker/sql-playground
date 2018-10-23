@@ -18,7 +18,7 @@ export class DbConnectionFormComponent {
 
   form: FormGroup = new FormGroup({
     host: new FormControl(this.connectionType === 'socket' ? 'localhost' : ''),
-    socketPath: new FormControl('', Validators.required),
+    socketPath: new FormControl(''),
     port: new FormControl(''),
     user: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
