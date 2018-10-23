@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 import { ConnectionStatusService } from '../../services/connection-status.service';
@@ -11,7 +11,7 @@ import { environment as env } from '../../../environments/environment';
   templateUrl: './db-connection-form.component.html',
   styleUrls: ['./db-connection-form.component.scss']
 })
-export class DbConnectionFormComponent implements OnInit {
+export class DbConnectionFormComponent {
   @Output() submitted: EventEmitter<any> = new EventEmitter();
 
   connectionType = 'standard';
@@ -19,8 +19,8 @@ export class DbConnectionFormComponent implements OnInit {
   form: FormGroup = new FormGroup({
     host: new FormControl(this.connectionType === 'socket' ? 'localhost' : ''),
     socketPath: new FormControl('', Validators.required),
-    user: new FormControl('', Validators.required),
     port: new FormControl(''),
+    user: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     database: new FormControl('', Validators.required),
   });
@@ -30,11 +30,9 @@ export class DbConnectionFormComponent implements OnInit {
     private httpService: HttpService,
   ) { }
 
-  ngOnInit() {
-  }
-
   switchConnectionType(connectionType: string) {
     this.connectionType = connectionType;
+
     if (connectionType === 'standard') {
       this.form.get('port').setValidators(Validators.required);
       this.form.get('host').setValidators(Validators.required);
