@@ -9,10 +9,12 @@ import { ConnectionStatusService } from './services/connection-status.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-  isConnected = false;
   connectedDB: string;
   queryResult: any;
+
+  title = 'app';
+  isConnected = false;
+  showAddConnectionModal = false;
 
   dbConfig = {
     host: 'localhost',
@@ -26,6 +28,14 @@ export class AppComponent {
     private httpService: HttpService,
     private connectionStatusService: ConnectionStatusService,
   ) {}
+
+  showCreateConnectionModal() {
+    this.showAddConnectionModal = true;
+  }
+
+  hideCreateConnectionModal() {
+    this.showAddConnectionModal = false;
+  }
 
   createNewConnection(): void {
     this.httpService.post({

@@ -1,0 +1,15 @@
+<div class="modal {{classes}}">
+  <div class="modal__window">
+    <div class="modal__head">
+      <div class="modal__head__left">
+          <ng-content select=[modal-header]></ng-content>
+      </div>
+      <div class="modal__head__right" *ngIf="showCloseBtn">
+        <button class="btn btn--close" title="close" (click)="closeModal()">+</button>
+      </div>
+    </div>
+    <div class="modal__body">
+      <ng-content select=[modal-body]></ng-content>
+    </div>
+  </div>
+</div>

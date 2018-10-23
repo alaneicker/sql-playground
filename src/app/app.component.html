@@ -6,7 +6,7 @@
       <app-connection-status></app-connection-status>
   </ng-container>
   <ng-container header-right>
-    <button class="btn btn--xsm" (click)="createNewConnection()">New Connection</button>
+    <button class="btn btn--xsm" (click)="showCreateConnectionModal()">New Connection</button>
   </ng-container>
 </app-header>
 
@@ -18,3 +18,16 @@
     <app-query-editor></app-query-editor>
   </div>
 </div>
+
+<app-modal 
+  *ngIf="showAddConnectionModal"
+  (close)="hideCreateConnectionModal()">
+  <ng-container modal-header>
+    <span class="txt-medium txt-16 txt-24@medium">Add Database Connection</span>
+  </ng-container>
+  <ng-container modal-body>
+    <div class="padding-16">
+      Modal body
+    </div>
+  </ng-container>
+</app-modal>

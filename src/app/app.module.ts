@@ -10,6 +10,7 @@ import { ConnectionStatusModule } from './components/connection-status/connectio
 import { LogoModule } from './components/logo/logo.module';
 import { DbTableListModule } from './components/db-table-list/db-table-list.module';
 import { QueryEditorModule } from './components/query-editor/query-editor.module';
+import { ModalModule } from './components/modal/modal.module';
 
 import { AppComponent } from './app.component';
 
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
     DbTableListModule,
     ConnectionStatusModule,
     QueryEditorModule,
+    ModalModule,
   ],
   providers: [
     HttpService,

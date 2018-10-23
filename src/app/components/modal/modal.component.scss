@@ -1,0 +1,45 @@
+@import '../../../assets/styles/sass-utilities/tools.scss';
+
+.modal {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.75);
+
+    &__window {
+        background: #fff;
+        flex-direction: column;
+        display: flex;
+        margin: rem(16);
+    }
+
+    &__head {
+        background: $gray-6;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(16);
+    }
+
+    &__body {
+        overflow: auto;
+    }
+
+    &__footer {
+        border-top: rem(1) solid $gray-4;
+    }
+
+    @media(min-width: $breakpoint-medium) {
+        justify-content: center;
+        align-items: center;
+
+        &__window {
+            max-height: 90%;
+        }
+    }
+}
