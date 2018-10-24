@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryEditorComponent implements OnInit {
 
+  editorOptions = {
+    theme: 'vs',
+    language: 'sql',
+    smoothScrolling: true,
+    minimap: {
+      enabled: false
+    },
+  };
+
+  code = 'SELECT * FROM brewlog WHERE ID = 1';
+
   constructor() { }
 
   ngOnInit() {

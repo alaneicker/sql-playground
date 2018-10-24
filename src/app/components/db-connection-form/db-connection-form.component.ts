@@ -45,6 +45,7 @@ export class DbConnectionFormComponent {
   }
 
   connect(form: NgForm) {
+    console.log(this.form);
     if (form.valid) {
       this.httpService.post({
         url: `${env.apiUrl}/create-connection`,

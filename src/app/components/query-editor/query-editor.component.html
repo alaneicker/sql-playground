@@ -9,7 +9,10 @@
       </li>
     </ul>
   </div>
-  <textarea class="query-editor__field" placeholder="Eg. SELECT * FROM myTable LIMIT 50"></textarea>
+  <div class="query-editor__field">
+    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+  </div>
+  <!-- <textarea class="query-editor__field" placeholder="Eg. SELECT * FROM myTable LIMIT 50"></textarea> -->
   <div class="query-editor__results">
     
   </div>
