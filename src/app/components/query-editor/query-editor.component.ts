@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HttpService } from '../../services/http.service';
+import { QueryResultService } from '../../services/query-result.service';
 
 import { environment as env } from '../../../environments/environment';
 
@@ -25,7 +26,10 @@ export class QueryEditorComponent {
 
   query = '-- Example: SELECT * FROM myTable WHERE id = 1';
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private queryResultService: QueryResultService,
+  ) {}
 
   clearQuery() {
     this.query = '';
@@ -37,7 +41,7 @@ export class QueryEditorComponent {
       data: { query: this.query }
     })
     .then(res => {
-      alert(JSON.stringify(res));
+      this.queryResultService.updateQueryResult(res);
     })
     .catch(err => console.log(err));
   }
