@@ -11,8 +11,7 @@
   &__left {
     background: $gray-6;
     font-size: rem(14);
-    width: rem(250);
-    overflow: auto;
+    min-width: rem(250);
     border-right: rem(1) solid darken($gray-5, 2%);
   }
 

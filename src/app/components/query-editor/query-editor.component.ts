@@ -24,7 +24,7 @@ export class QueryEditorComponent {
     },
   };
 
-  query = 'select * from myBeers';
+  query = 'select * from settings';
   //query = '-- Example: SELECT * FROM myTable WHERE id = 1';
 
   constructor(
