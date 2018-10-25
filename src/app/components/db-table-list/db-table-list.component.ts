@@ -16,6 +16,7 @@ export class DbTableListComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
   tables: any[] = [];
   tableColumns: any[];
+  loading: boolean;
 
   constructor(
     private connectionStatusService: ConnectionStatusService,
@@ -29,6 +30,7 @@ export class DbTableListComponent implements OnInit, OnDestroy {
         if (res.isConnected === true) {
           this.getAllTablesAndColumns();
         }
+        this.loading = res.inProgress;
       });
   }
 

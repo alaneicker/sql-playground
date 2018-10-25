@@ -46,6 +46,11 @@ export class DbConnectionFormComponent {
 
   connect(form: NgForm) {
     if (form.valid) {
+
+      this.connectionStatusService.updateStatus({
+        inProgress: true,
+      });
+
       this.httpService.post({
         url: `${env.apiUrl}/create-connection`,
         data: this.form.value,
@@ -55,6 +60,7 @@ export class DbConnectionFormComponent {
           this.connectionStatusService.updateStatus({
             isConnected: res.connected,
             database: this.form.value.database,
+            inProgress: false,
           });
 
           this.submitted.emit();

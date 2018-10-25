@@ -24,8 +24,7 @@ export class QueryEditorComponent {
     },
   };
 
-  query = 'select * from settings';
-  //query = '-- Example: SELECT * FROM myTable WHERE id = 1';
+  query = '-- Example: SELECT * FROM myTable WHERE id = 1';
 
   constructor(
     private httpService: HttpService,
@@ -37,12 +36,19 @@ export class QueryEditorComponent {
   }
 
   runQuery() {
+    this.queryResultService.updateStatus({
+      inProgress: true,
+    });
+
     this.httpService.post({
       url: `${env.apiUrl}/query`,
       data: { query: this.query }
     })
     .then(res => {
-      this.queryResultService.updateQueryResult(res);
+      this.queryResultService.updateStatus({
+        result: res,
+        inProgress: false,
+      });
     })
     .catch(err => console.log(err));
   }
