@@ -14,13 +14,19 @@ export class QueryResultComponent implements OnInit, OnDestroy {
 
   constructor(private queryResultService: QueryResultService) { }
 
-  queryResult: any;
+  rows: any;
+  columns: string[];
 
   ngOnInit() {
     this.queryResultService.queryUpdate
     .takeUntil(this.unsubscribe$)
     .subscribe((res) => {
-      this.queryResult = res.result;
+      if (res.result !== null) {
+        this.columns = Array.isArray(res.result)
+          ? Object.keys(res.result[0])
+          : Object.keys(res.result);
+        this.rows = res.result;
+      }
     });
   }
 

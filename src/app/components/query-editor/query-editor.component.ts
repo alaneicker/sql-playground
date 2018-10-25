@@ -24,7 +24,8 @@ export class QueryEditorComponent {
     },
   };
 
-  query = '-- Example: SELECT * FROM myTable WHERE id = 1';
+  query = 'select * from myBeers';
+  //query = '-- Example: SELECT * FROM myTable WHERE id = 1';
 
   constructor(
     private httpService: HttpService,
