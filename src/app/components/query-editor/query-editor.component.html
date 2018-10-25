@@ -2,17 +2,28 @@
   <div class="query-editor__controls">
     <ul class="h-list h-list--tight">
       <li>
-        <button class="btn btn--xsm btn--hollow">Clear</button>
+        <button 
+          class="btn btn--xsm btn--hollow" 
+          (click)="clearQuery()">
+          Clear
+        </button>
       </li>
       <li>
-        <button class="btn btn--xsm btn--hollow">Run</button>
+        <button 
+          class="btn btn--xsm btn--hollow" 
+          (click)="runQuery()">
+          Run
+        </button>
       </li>
     </ul>
   </div>
   <div class="query-editor__field">
-    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    <ngx-monaco-editor 
+      class="sql-code-editor" 
+      [options]="editorOptions" 
+      [(ngModel)]="query">
+    </ngx-monaco-editor>
   </div>
-  <!-- <textarea class="query-editor__field" placeholder="Eg. SELECT * FROM myTable LIMIT 50"></textarea> -->
   <div class="query-editor__results">
     
   </div>
