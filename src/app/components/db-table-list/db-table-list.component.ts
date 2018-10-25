@@ -5,6 +5,8 @@ import 'rxjs/add/operator/takeUntil';
 import { ConnectionStatusService } from '../../services/connection-status.service';
 import { HttpService } from '../../services/http.service';
 
+import { environment as env } from '../../../environments/environment';
+
 @Component({
   selector: 'app-db-table-list',
   templateUrl: './db-table-list.component.html',
@@ -36,10 +38,10 @@ export class DbTableListComponent implements OnInit, OnDestroy {
   }
 
   getAllTablesAndColumns() {
-    this.httpService.get({ url: 'http://localhost:8080/api/get-db-tables' })
+    this.httpService.get({ url: `${env.apiUrl}/get-db-tables` })
       .then(tables => {
         tables.forEach(table => {
-          this.httpService.get({ url: `http://localhost:8080/api/get-table-columns/${table}` })
+          this.httpService.get({ url: `${env.apiUrl}/get-table-columns/${table}` })
             .then(columns => {
               this.tables.push({
                 name: table,

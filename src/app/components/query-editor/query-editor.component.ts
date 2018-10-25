@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { HttpService } from '../../services/http.service';
+
+import { environment as env } from '../../../environments/environment';
+
 @Component({
   selector: 'app-query-editor',
   templateUrl: './query-editor.component.html',
@@ -19,14 +23,23 @@ export class QueryEditorComponent {
     },
   };
 
-  query = '-- Replace this line with your query';
+  query = '-- Example: SELECT * FROM myTable WHERE id = 1';
+
+  constructor(private httpService: HttpService) {}
 
   clearQuery() {
     this.query = '';
   }
 
   runQuery() {
-    alert(this.query);
+    this.httpService.post({
+      url: `${env.apiUrl}/query`,
+      data: { query: this.query }
+    })
+    .then(res => {
+      alert(JSON.stringify(res));
+    })
+    .catch(err => console.log(err));
   }
 
 }

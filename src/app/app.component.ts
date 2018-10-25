@@ -24,13 +24,4 @@ export class AppComponent {
   hideCreateConnectionModal() {
     this.showAddConnectionModal = false;
   }
-
-  sendQuery() {
-    this.httpService.post({
-      url: 'http://localhost:8080/api/query',
-      data: { query: 'SELECT * FROM mybeers' },
-    })
-    .then(res => this.queryResult = res)
-    .catch(err => console.log(err));
-  }
 }
