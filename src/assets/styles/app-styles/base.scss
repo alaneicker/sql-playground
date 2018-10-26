@@ -3,6 +3,31 @@ body > :host {
   font-size: rem($font-size-default);
 }
 
+.unsupported {
+  color: $white;
+  display: none;
+  position: fixed;
+  padding: rem(16);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  line-height: 1.3;
+
+  &__title {
+    font-size: rem(32);
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: rem(18);
+    font-weight: 500;
+  }
+}
+
 @media(max-width: $breakpoint-medium) {
   body {
     background: $black;
@@ -13,27 +38,6 @@ body > :host {
   }
 
   .unsupported {
-    color: $white;
     display: block;
-    position: fixed;
-    padding: rem(16);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    text-transform: uppercase;
-    line-height: 1.3;
-
-    &__title {
-      font-size: rem(32);
-      font-weight: 700;
-    }
-
-    &__subtitle {
-      font-size: rem(18);
-      font-weight: 500;
-    }
   }
 }
