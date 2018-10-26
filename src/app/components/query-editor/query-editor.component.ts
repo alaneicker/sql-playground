@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
 
 import { HttpService } from '../../services/http.service';
 import { QueryResultService } from '../../services/query-result.service';
+import { ConnectionStatusService } from '../../services/connection-status.service';
 
 import { environment as env } from '../../../environments/environment';
 
@@ -10,7 +13,8 @@ import { environment as env } from '../../../environments/environment';
   templateUrl: './query-editor.component.html',
   styleUrls: ['./query-editor.component.scss']
 })
-export class QueryEditorComponent {
+export class QueryEditorComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject();
 
   editorOptions = {
     theme: 'vs',
@@ -24,12 +28,30 @@ export class QueryEditorComponent {
     },
   };
 
-  query = '-- Example: SELECT * FROM myTable WHERE id = 1';
+  defaultQuery = '-- Example: SELECT * FROM myTable WHERE id = 1';
+
+  query = this.defaultQuery;
 
   constructor(
     private httpService: HttpService,
     private queryResultService: QueryResultService,
+    private connectionStatusService: ConnectionStatusService,
   ) {}
+
+  ngOnInit() {
+    this.connectionStatusService.statusChange
+      .takeUntil(this.unsubscribe$)
+      .subscribe((res) => {
+        if (res.isConnected === true) {
+          this.query = this.defaultQuery;
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
   clearQuery() {
     this.query = '';

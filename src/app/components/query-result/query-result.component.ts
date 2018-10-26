@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 import { QueryResultService } from '../../services/query-result.service';
+import { ConnectionStatusService } from '../../services/connection-status.service';
 
 @Component({
   selector: 'app-query-result',
@@ -12,13 +13,25 @@ import { QueryResultService } from '../../services/query-result.service';
 export class QueryResultComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
 
-  constructor(private queryResultService: QueryResultService) { }
+  constructor(
+    private queryResultService: QueryResultService,
+    private connectionStatusService: ConnectionStatusService,
+  ) { }
 
   rows: any;
   columns: string[];
   loading: boolean;
 
   ngOnInit() {
+    this.connectionStatusService.statusChange
+      .takeUntil(this.unsubscribe$)
+      .subscribe((res) => {
+        if (res.isConnected === true) {
+          this.rows = null;
+          this.columns = [];
+        }
+      });
+
     this.queryResultService.queryUpdate
       .takeUntil(this.unsubscribe$)
       .subscribe((res) => {

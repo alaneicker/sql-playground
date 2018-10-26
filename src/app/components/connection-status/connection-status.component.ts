@@ -25,13 +25,13 @@ export class ConnectionStatusComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.connectionStatusService.statusChange
-    .takeUntil(this.unsubscribe$)
-    .subscribe((res) => {
-      if (res.isConnected === true) {
-        this.isConnected = res.isConnected;
-        this.activeText = `Connected to: ${res.database}`;
-      }
-    });
+      .takeUntil(this.unsubscribe$)
+      .subscribe((res) => {
+        if (res.isConnected === true) {
+          this.isConnected = res.isConnected;
+          this.activeText = `Connected to: ${res.database}`;
+        }
+      });
   }
 
   ngOnDestroy() {
