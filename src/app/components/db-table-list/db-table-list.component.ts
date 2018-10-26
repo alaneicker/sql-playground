@@ -42,6 +42,7 @@ export class DbTableListComponent implements OnInit, OnDestroy {
   getAllTablesAndColumns() {
     this.httpService.get({ url: `${env.apiUrl}/get-db-tables` })
       .then(tables => {
+        this.tables = [];
         tables.forEach(table => {
           this.httpService.get({ url: `${env.apiUrl}/get-table-columns/${table}` })
             .then(columns => {

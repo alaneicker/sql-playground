@@ -10,7 +10,7 @@ const app = require('express')()
   .use(bodyParser.json())
   .use(cors());
 
-let connection;
+let pool;
 
 const query = options => {
   const {
@@ -20,20 +20,29 @@ const query = options => {
   } = options;
 
   return new Promise((resolve, reject) => {
-    connection.query(query, data, (err, result) => {
+    pool.getConnection((err, connection) => {
       if (err) {
+          console.log('DATABASE ERROR: ', err);
+          connection.release();
           reject(err);
-      } else {
-          resolve(isArray === false ? result[0] : result);
       }
+      connection.query(query, data, (err, result) => {
+          connection.release();
+          if (err) {
+              reject(err);
+          } else {
+              resolve(isArray === false ? result[0] : result);
+          }
+      });
     });
   });
 };
 
 app.route('/api/create-connection').post((req, res) => {
-  connection = mysql.createConnection(req.body);
-
-  res.send({ connected: connection.config ? true : false });
+  pool = mysql.createPool(req.body);
+  pool.config.connectionLimit = 400;
+  
+  res.send({ connected: pool.config ? true : false });
 });
 
 app.route('/api/query').post((req, res) => {
