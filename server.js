@@ -42,7 +42,7 @@ const query = options => {
 app.use(express.static(`${__dirname}/dist`));
 
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}dist/index.html`);
+    res.sendFile(`${__dirname}/dist/index.html`);
 });
 
 app.route('/api/create-connection').post((req, res) => {
