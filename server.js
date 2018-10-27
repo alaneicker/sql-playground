@@ -1,3 +1,4 @@
+const app = require('express')();
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
@@ -37,6 +38,12 @@ const query = options => {
     });
   });
 };
+
+app.use(express.static(`${__dirname}/dist`));
+
+app.get('/', (req, res) => {
+    res.sendFile('dist/index.html', { root: __dirname });
+});
 
 app.route('/api/create-connection').post((req, res) => {
   pool = mysql.createPool(req.body);

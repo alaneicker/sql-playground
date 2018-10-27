@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { QueryResultModule } from '../query-result/query-result.module';
+
 
 import { QueryEditorComponent } from './query-editor.component';
-import { QueryResultComponent } from '../query-result/query-result.component';
 
 import { QueryResultService } from '../../services/query-result.service';
 
@@ -12,13 +13,11 @@ import { QueryResultService } from '../../services/query-result.service';
   imports: [
     CommonModule,
     FormsModule,
+    QueryResultModule,
     MonacoEditorModule.forRoot(),
   ],
   providers: [QueryResultService],
-  declarations: [
-    QueryEditorComponent,
-    QueryResultComponent,
-  ],
+  declarations: [QueryEditorComponent],
   exports: [QueryEditorComponent],
 })
 export class QueryEditorModule { }
