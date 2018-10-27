@@ -17,11 +17,15 @@ export class ConnectionStatusService {
 
   statusChange = this.status.asObservable();
 
-  updateStatus(status: Status) {
-    this.status.next({
-      isConnected: status.isConnected || false,
-      database: status.database || '',
-      inProgress: status.inProgress || false,
+  updateStatus(status: Status): Promise<any> {
+    return new Promise(resolve => {
+      this.status.next({
+        isConnected: status.isConnected || false,
+        database: status.database || '',
+        inProgress: status.inProgress || false,
+      });
+
+      resolve();
     });
   }
 }

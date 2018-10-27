@@ -5,6 +5,7 @@ import 'rxjs/add/operator/takeUntil';
 import { HttpService } from '../../services/http.service';
 import { QueryResultService } from '../../services/query-result.service';
 import { ConnectionStatusService } from '../../services/connection-status.service';
+import { DemoModeService } from '../../services/demo.service';
 
 import { environment as env } from '../../../environments/environment';
 
@@ -36,9 +37,19 @@ export class QueryEditorComponent implements OnInit, OnDestroy {
     private httpService: HttpService,
     private queryResultService: QueryResultService,
     private connectionStatusService: ConnectionStatusService,
+    private demoModeService: DemoModeService,
   ) {}
 
   ngOnInit() {
+    this.demoModeService.statusChange
+      .takeUntil(this.unsubscribe$)
+      .subscribe(status => {
+        if (status.isRunning === true) {
+          this.query = 'SELECT * FROM visitordata';
+          this.runQuery();
+        }
+      });
+
     this.connectionStatusService.statusChange
       .takeUntil(this.unsubscribe$)
       .subscribe((res) => {

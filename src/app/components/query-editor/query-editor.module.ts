@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { QueryResultModule } from '../query-result/query-result.module';
 
-
 import { QueryEditorComponent } from './query-editor.component';
 
 import { QueryResultService } from '../../services/query-result.service';
@@ -16,7 +15,9 @@ import { QueryResultService } from '../../services/query-result.service';
     QueryResultModule,
     MonacoEditorModule.forRoot(),
   ],
-  providers: [QueryResultService],
+  providers: [
+    QueryResultService,
+  ],
   declarations: [QueryEditorComponent],
   exports: [QueryEditorComponent],
 })
