@@ -19,7 +19,7 @@ export class QueryEditorComponent implements OnInit, OnDestroy {
   editorOptions = {
     theme: 'vs',
     language: 'sql',
-    fontSize: 14,
+    fontSize: 15,
     smoothScrolling: true,
     automaticLayout: true,
     renderLineHighlight: 'none',
