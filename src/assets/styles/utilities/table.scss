@@ -1,0 +1,32 @@
+$table-border-color: darken($gray-5, 5%);
+
+.table-wrapper {
+    width: 100%;
+    overflow: auto;
+}
+
+table {
+    border: rem(1) solid $table-border-color;
+    width: 100%;
+
+    thead > tr {
+        border: rem(1) solid $table-border-color;
+    }
+
+    th {
+        font-weight: $font-semibold;
+        text-align: left;
+    }
+
+    th, td {
+        padding: rem(8);
+    }
+
+    tr > * + * {
+        border-left: rem(1) solid $table-border-color;
+    }
+
+    tbody > tr:nth-child(even) {
+        background-color: $gray-6;
+    }
+}
