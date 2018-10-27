@@ -1,14 +1,15 @@
+const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
 const port = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || 'development';
 
-const app = require('express')()
-  .use(cors())
-  .use(bodyParser.urlencoded({ extended: false }))
-  .use(bodyParser.json())
-  .use(cors());
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 let pool;
 
