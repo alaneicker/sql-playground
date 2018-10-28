@@ -23,11 +23,12 @@ export class DemoLauncherComponent implements OnInit {
   }
 
   runDemoMode() {
+
     const demoDbConfig = {
-      host: 'us-cdbr-iron-east-05.cleardb.net',
-      user: 'be477d69ad2e03',
-      password: 'ec5a1352',
-      database: 'heroku_18b06d6c55cb8e4'
+      host: 'us-cdbr-iron-east-01.cleardb.net',
+      user: 'b4594f562ecaa3',
+      password: '69c86eac',
+      database: 'heroku_126cd5f9e2342f3'
     };
 
     this.httpService.post({

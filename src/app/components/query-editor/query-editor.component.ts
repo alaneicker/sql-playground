@@ -45,7 +45,7 @@ export class QueryEditorComponent implements OnInit, OnDestroy {
       .takeUntil(this.unsubscribe$)
       .subscribe(status => {
         if (status.isRunning === true) {
-          this.query = 'SELECT * FROM visitordata';
+          this.query = 'SELECT * FROM contacts';
           this.runQuery();
         }
       });
