@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
-import { QueryResultService } from '../../services/query-result.service';
-import { ConnectionStatusService } from '../../services/connection-status.service';
+import { QueryResultService } from './query-result.service';
+import { ConnectionStatusService } from '../connection-status/connection-status.service';
 
 @Component({
   selector: 'app-query-result',

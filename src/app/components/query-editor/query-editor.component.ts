@@ -3,9 +3,9 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 import { HttpService } from '../../services/http.service';
-import { QueryResultService } from '../../services/query-result.service';
-import { ConnectionStatusService } from '../../services/connection-status.service';
-import { DemoLauncherService } from '../../services/demo-launcher.service';
+import { QueryResultService } from '../query-result/query-result.service';
+import { ConnectionStatusService } from '../connection-status/connection-status.service';
+import { DemoLauncherService } from '../demo-launcher/demo-launcher.service';
 
 import { environment as env } from '../../../environments/environment';
 

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
-import { ConnectionStatusService } from '../../services/connection-status.service';
+import { ConnectionStatusService } from '../connection-status/connection-status.service';
 import { HttpService } from '../../services/http.service';
 
 import { environment as env } from '../../../environments/environment';

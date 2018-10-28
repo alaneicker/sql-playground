@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpService } from '../../services/http.service';
-import { ConnectionStatusService } from '../../services/connection-status.service';
-import { DemoLauncherService } from '../../services/demo-launcher.service';
+import { ConnectionStatusService } from '../connection-status/connection-status.service';
+import { DemoLauncherService } from './demo-launcher.service';
 
 import { environment as env } from '../../../environments/environment';
 

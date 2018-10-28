@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ConnectionStatusComponent } from './connection-status.component';
 import { StatusModule } from '../status/status.module';
 
-import { ConnectionStatusService } from '../../services/connection-status.service';
+import { ConnectionStatusService } from './connection-status.service';
 
 @NgModule({
   imports: [

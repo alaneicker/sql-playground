@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
-import { ConnectionStatusService } from '../../services/connection-status.service';
+import { ConnectionStatusService } from './connection-status.service';
 
 @Component({
   selector: 'app-connection-status',

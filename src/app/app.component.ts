@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HttpService } from './services/http.service';
-import { ConnectionStatusService } from './services/connection-status.service';
+import { ConnectionStatusService } from './components/connection-status/connection-status.service';
 
 @Component({
   selector: 'app-root',

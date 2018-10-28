@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
-import { ConnectionStatusService } from '../../services/connection-status.service';
+import { ConnectionStatusService } from '../connection-status/connection-status.service';
 import { HttpService } from '../../services/http.service';
 
 import { environment as env } from '../../../environments/environment';

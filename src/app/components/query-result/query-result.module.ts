@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { QueryResultComponent } from './query-result.component';
 
-import { QueryResultService } from '../../services/query-result.service';
+import { QueryResultService } from './query-result.service';
 
 @NgModule({
   imports: [CommonModule],
