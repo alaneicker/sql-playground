@@ -11,7 +11,7 @@ import { ModalModule } from './components/modal/modal.module';
 import { DbConnectionFormModule } from './components/db-connection-form/db-connection-form.module';
 import { DemoLauncherModule } from './components/demo-launcher/demo-launcher.module';
 
-import { HttpService } from './services/http.service';
+import { HttpService } from './shared/services/http.service';
 
 import { AppComponent } from './app.component';
 

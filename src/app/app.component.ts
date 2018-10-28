@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HttpService } from './services/http.service';
+import { HttpService } from './shared/services/http.service';
 import { ConnectionStatusService } from './components/connection-status/connection-status.service';
 
 @Component({

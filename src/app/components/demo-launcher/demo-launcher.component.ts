@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpService } from '../../services/http.service';
+import { HttpService } from '../../shared/services/http.service';
 import { ConnectionStatusService } from '../connection-status/connection-status.service';
 import { DemoLauncherService } from './demo-launcher.service';
 
