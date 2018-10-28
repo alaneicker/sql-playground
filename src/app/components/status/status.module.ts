@@ -4,9 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StatusComponent } from './status.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [StatusComponent],
   exports: [StatusComponent],
 })

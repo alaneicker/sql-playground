@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpService } from './services/http.service';
+import { ConnectionStatusService } from './services/connection-status.service';
+import { DemoLauncherService } from './services/demo-launcher.service';
+import { QueryResultService } from './services/query-result.service';
 
 import { HeaderModule } from './components/header/header.module';
 import { ConnectionStatusModule } from './components/connection-status/connection-status.module';
@@ -33,6 +36,9 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     HttpService,
+    ConnectionStatusService,
+    DemoLauncherService,
+    QueryResultService,
   ],
   bootstrap: [AppComponent]
 })
