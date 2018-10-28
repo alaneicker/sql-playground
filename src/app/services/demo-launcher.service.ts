@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
-export class DemoModeService {
+export class DemoLauncherService {
   public demoMode = new BehaviorSubject<any>({
     isRunning: false,
   });

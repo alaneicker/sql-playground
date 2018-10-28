@@ -7,6 +7,7 @@ import { QueryResultModule } from '../query-result/query-result.module';
 import { QueryEditorComponent } from './query-editor.component';
 
 import { QueryResultService } from '../../services/query-result.service';
+import { DemoLauncherService } from '../../services/demo-launcher.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { QueryResultService } from '../../services/query-result.service';
   ],
   providers: [
     QueryResultService,
+    DemoLauncherService,
   ],
   declarations: [QueryEditorComponent],
   exports: [QueryEditorComponent],
