@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-import { HttpService } from './shared/services/http.service';
-import { ConnectionStatusService } from './components/connection-status/connection-status.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,10 +11,7 @@ export class AppComponent {
   isConnected = false;
   showAddConnectionModal = false;
 
-  constructor(
-    private httpService: HttpService,
-    private connectionStatusService: ConnectionStatusService,
-  ) {}
+  constructor() {}
 
   showCreateConnectionModal() {
     this.showAddConnectionModal = true;
