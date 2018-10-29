@@ -10,7 +10,8 @@ import { ConnectionStatusService } from './connection-status.service';
     <app-status
       [status]="isConnected"
       [activeText]="activeText"
-      [inactiveText]="inactiveText"></app-status>
+      [inactiveText]="inactiveText">
+    </app-status>
   `,
 })
 export class ConnectionStatusComponent implements OnInit, OnDestroy {
