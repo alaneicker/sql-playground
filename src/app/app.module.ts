@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from './components/header/header.module';
 import { ConnectionStatusModule } from './components/connection-status/connection-status.module';
 import { LogoModule } from './components/logo/logo.module';
@@ -10,8 +11,6 @@ import { QueryEditorModule } from './components/query-editor/query-editor.module
 import { ModalModule } from './components/modal/modal.module';
 import { DbConnectionFormModule } from './components/db-connection-form/db-connection-form.module';
 import { DemoLauncherModule } from './components/demo-launcher/demo-launcher.module';
-
-import { HttpService } from './shared/services/http.service';
 
 import { AppComponent } from './app.component';
 
@@ -22,6 +21,7 @@ import { AppComponent } from './app.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    SharedModule.forRoot(),
     HeaderModule,
     LogoModule,
     DbTableListModule,
@@ -31,7 +31,7 @@ import { AppComponent } from './app.component';
     DbConnectionFormModule,
     DemoLauncherModule,
   ],
-  providers: [HttpService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
