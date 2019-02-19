@@ -45,6 +45,7 @@ app.get('/', (req, res) => {
     res.sendFile('dist/index.html', { root: __dirname });
 });
 
+// TODO: Refactor URL: /api/database/connections/create
 app.route('/api/create-connection').post((req, res) => {
   pool = mysql.createPool(req.body);
   pool.config.connectionLimit = 400;
@@ -52,12 +53,14 @@ app.route('/api/create-connection').post((req, res) => {
   res.send({ connected: pool.config ? true : false });
 });
 
+// TODO: Refactor URL: /api/database/query
 app.route('/api/query').post((req, res) => {
   query({ query: req.body.query })
     .then(data => res.send(data))
     .catch(error => console.log(error));
 });
 
+// TODO: Refactor URL: /api/database/tables
 app.route('/api/get-db-tables').get((req, res) => {
   query({ query: `show tables` })
     .then(tables => {
@@ -66,6 +69,7 @@ app.route('/api/get-db-tables').get((req, res) => {
     .catch(error => console.log(error));
 });
 
+// TODO: Refactor URL: /api/database/:table/columns
 app.route('/api/get-table-columns/:table').get((req, res) => {
   query({ query: `SHOW COLUMNS FROM ${req.params.table}` })
     .then(columns => {
