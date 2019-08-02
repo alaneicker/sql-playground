@@ -69,6 +69,13 @@ export class QueryEditorComponent implements OnInit, OnDestroy {
   }
 
   runQuery() {
+    
+    const illegalQuery = this.query.toLowerCase().match(/drop|alter/);
+    
+    if(illegalQuery) {
+      throw new Error(`Query not permitted: ${illegalQuery[0]}`);
+    }
+    
     this.queryResultService.updateStatus({
       inProgress: true,
     });
