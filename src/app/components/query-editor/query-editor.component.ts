@@ -73,7 +73,7 @@ export class QueryEditorComponent implements OnInit, OnDestroy {
     const isIllegalQuery = this.query.toLowerCase().match(/drop|alter/);
     
     if(isIllegalQuery) {
-      alert(`${illegalQuery[0].toUpperCase() clause not permitted.`);
+      alert(`${illegalQuery[0].toUpperCase()} clause not permitted.`);
       return false;
     }
     
